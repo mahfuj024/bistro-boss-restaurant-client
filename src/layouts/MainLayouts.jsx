@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 
 function MainLayouts() {
     return (
-        <div className='max-w-480 mx-auto'>
+        <div>
             <Navbar />
             <Outlet /> {/* এখানে nested route content আসবে */}
             <Footer />

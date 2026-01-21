@@ -1,8 +1,17 @@
-import React from 'react'
+
+import { Link, NavLink } from 'react-router-dom'
 
 function Navbar() {
+
+  const navItem = [
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "User", path: "/user" },
+    { name: "Contact", path: "/contact" },
+  ]
+
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm px-0 md:px-8 lg:px-12">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -11,32 +20,46 @@ function Navbar() {
           <ul
             tabIndex="-1"
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li><a>Item 1</a></li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-              </ul>
-            </li>
-            <li><a>Item 3</a></li>
+            {
+              navItem.map((item, index) => (
+                <li key={index}>
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) =>
+                      `hover:bg-transparent ${isActive ? "text-[#EEFF25] font-bold" : ""
+                      }`
+                    }
+                  >
+                    {item.name}
+                  </NavLink>
+                </li>
+              ))
+            }
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link to="/">
+          <p className='text-xl md:text-2xl lg:text-3xl font-bold'>BISTRO BOSS</p>
+          <p class="tracking-[3px] md:tracking-[4px] font-semibold text-base md:text-lg lg:text-2xl mt-0 lg:mt-1">RESTAURANT</p>
+        </Link>
       </div>
+      {/* Navbar Center */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li><a>Item 1</a></li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2 bg-base-100 w-40 z-1">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-              </ul>
-            </details>
-          </li>
-          <li><a>Item 3</a></li>
+          {
+            navItem.map((item, index) => (
+              <li key={index}>
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `hover:bg-transparent ${isActive ? "text-[#EEFF25] font-bold" : ""
+                    }`
+                  }
+                >
+                  {item.name}
+                </NavLink>
+              </li>
+            ))
+          }
         </ul>
       </div>
       <div className="navbar-end">
