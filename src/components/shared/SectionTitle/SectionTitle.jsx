@@ -1,6 +1,6 @@
-import React from 'react'
 
-function Heading({textTop, textBottom}) {
+
+function SectionTitle({ textTop, textBottom }) {
     return (
         <div>
             <p className='text-center text-base md:text-lg lg:text-xl text-[#D99904FF]'>{textTop}</p>
@@ -11,4 +11,4 @@ function Heading({textTop, textBottom}) {
     )
 }
 
-export default Heading
+export default SectionTitle

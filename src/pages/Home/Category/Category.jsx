@@ -13,12 +13,12 @@ import slide2 from "../../../assets/home/slide2.jpg"
 import slide3 from "../../../assets/home/slide3.jpg"
 import slide4 from "../../../assets/home/slide4.jpg"
 import slide5 from "../../../assets/home/slide5.jpg"
-import Heading from '../../../components/shared/SectionTitle/SectionTitle';
+import SectionTitle from '../../../components/shared/SectionTitle/SectionTitle';
 
 function Category() {
     return (
         <div className='mt-8 md:mt-12 lg:mt-25 max-w-7xl mx-auto'>
-            <Heading textTop={"---From 11:00am to 10:00pm---"} textBottom={"ORDER ONLINE"}></Heading>
+            <SectionTitle textTop={"---From 11:00am to 10:00pm---"} textBottom={"ORDER ONLINE"}></SectionTitle>
 
             <Swiper
                 slidesPerView={4}
