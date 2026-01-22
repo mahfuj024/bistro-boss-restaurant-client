@@ -13,7 +13,7 @@ import slide2 from "../../../assets/home/slide2.jpg"
 import slide3 from "../../../assets/home/slide3.jpg"
 import slide4 from "../../../assets/home/slide4.jpg"
 import slide5 from "../../../assets/home/slide5.jpg"
-import Heading from '../../../components/shared/Heading/Heading';
+import Heading from '../../../components/shared/SectionTitle/SectionTitle';
 
 function Category() {
     return (
