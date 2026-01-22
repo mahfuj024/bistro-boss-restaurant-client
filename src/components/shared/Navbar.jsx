@@ -11,7 +11,7 @@ function Navbar() {
   ]
 
   return (
-    <div className="navbar bg-base-100 shadow-sm px-0 md:px-8 lg:px-12">
+    <div className="navbar px-0 md:px-8 lg:px-12 bg-[#15151580] fixed top-0 z-50 text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,11 +38,11 @@ function Navbar() {
           </ul>
         </div>
         <Link to="/">
-          <p className='text-xl md:text-2xl lg:text-3xl font-bold'>BISTRO BOSS</p>
-          <p class="tracking-[3px] md:tracking-[4px] font-semibold text-base md:text-lg lg:text-2xl mt-0 lg:mt-1">RESTAURANT</p>
+          <p className='text-xl md:text-2xl lg:text-3xl font-bold cinzel-font'>BISTRO BOSS</p>
+          <p class="tracking-[3px] md:tracking-[4px] font-semibold text-base md:text-lg lg:text-2xl mt-0 lg:mt-1 cinzel-font">RESTAURANT</p>
         </Link>
       </div>
-      {/* Navbar Center */}
+
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           {
@@ -62,6 +62,7 @@ function Navbar() {
           }
         </ul>
       </div>
+
       <div className="navbar-end">
         <a className="btn">Button</a>
       </div>
