@@ -7,7 +7,7 @@ function Menu() {
         <div className='mt-8 md:mt-12 lg:mt-25 max-w-7xl mx-auto'>
             <SectionTitle textTop={"---Check it out---"} textBottom={"FROM OUR MENU"}></SectionTitle>
 
-            <div className='mt-6 md:mt-10 lg:mt-14 grid grid-cols-1 lg:grid-cols-2 p-1 lg:p-0 space-y-4 md:space-y-6 lg:space-y-10'>
+            <div className='mt-6 md:mt-10 lg:mt-14 grid grid-cols-1 lg:grid-cols-2 p-2 lg:p-0 space-y-4 md:space-y-6 lg:space-y-10'>
                 <div className="flex mx-auto">
                     <BsChat className="text-7xl md:text-7xl lg:text-7xl" />
                     <div className="max-w-110 ml-3 md:ml-4 lg:ml-8">
