@@ -21,37 +21,49 @@ function Category() {
         <div className='mt-8 md:mt-12 lg:mt-25 max-w-7xl mx-auto'>
             <SectionTitle textTop={"---From 11:00am to 10:00pm---"} textBottom={"ORDER ONLINE"}></SectionTitle>
 
-            <Swiper
-                slidesPerView={4}
-                spaceBetween={30}
-                freeMode={true}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[FreeMode, Pagination]}
-                className="mySwiper"
-            >
-                <SwiperSlide>
-                    <img src={slide1} alt="slider image" />
-                    <h1 className='text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl text-center text-white -mt-7 md:-mt-11 lg:-mt-15'>SALADS</h1>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={slide2} alt="slider image" />
-                    <h1 className='text-base md:text-2xl lg:text-3xl drop-shadow-2xl font-light text-center text-white -mt-7 md:-mt-11 lg:-mt-15'>PIZZAS</h1>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={slide3} alt="slider image" />
-                    <h1 className='text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl text-center text-white -mt-7 md:-mt-11 lg:-mt-15'>SOUPS</h1>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={slide4} alt="slider image" />
-                    <h1 className='text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl text-center text-white -mt-7 md:-mt-11 lg:-mt-15'>DESSERTS</h1>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={slide5} alt="slider image" />
-                    <h1 className='text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl text-center text-white -mt-7 md:-mt-11 lg:-mt-15'>SALADS</h1>
-                </SwiperSlide>
-            </Swiper>
+                <Swiper
+                    // slidesPerView={4}
+                    spaceBetween={30}
+                    freeMode={true}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    modules={[FreeMode, Pagination]}
+                    className="mySwiper"
+
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 2,   // Mobile
+                        },
+                        768: {
+                            slidesPerView: 3,   // Tablet (md)
+                        },
+                        1024: {
+                            slidesPerView: 4,   // Desktop (lg)
+                        },
+                    }}
+                >
+                    <SwiperSlide>
+                        <img src={slide1} alt="slider image" />
+                        <h1 className='text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl text-center text-white -mt-7 md:-mt-11 lg:-mt-15'>SALADS</h1>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={slide2} alt="slider image" />
+                        <h1 className='text-base md:text-2xl lg:text-3xl drop-shadow-2xl font-light text-center text-white -mt-7 md:-mt-11 lg:-mt-15'>PIZZAS</h1>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={slide3} alt="slider image" />
+                        <h1 className='text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl text-center text-white -mt-7 md:-mt-11 lg:-mt-15'>SOUPS</h1>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={slide4} alt="slider image" />
+                        <h1 className='text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl text-center text-white -mt-7 md:-mt-11 lg:-mt-15'>DESSERTS</h1>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={slide5} alt="slider image" />
+                        <h1 className='text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl text-center text-white -mt-7 md:-mt-11 lg:-mt-15'>SALADS</h1>
+                    </SwiperSlide>
+                </Swiper>
 
             <div
                 className="h-60 md:h-90 lg:h-143 bg-cover bg-center flex items-center justify-center mt-8 md:mt-16 lg:mt-32"

@@ -2,6 +2,7 @@ import MainLayouts from "../layouts/MainLayouts";
 import ErrorPage from "../pages/Error/ErrorPage";
 import Home from "../pages/Home/Home";
 import { createBrowserRouter } from "react-router-dom";
+import OurMenu from "../pages/Our Menu/OurMenu";
 
 export const router = createBrowserRouter([
   {
@@ -9,7 +10,8 @@ export const router = createBrowserRouter([
     Component: MainLayouts,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, Component : Home }
+      { index: true, Component : Home },
+      {path : "/OurMenu", Component : OurMenu}
     ]
   }
 ]);

@@ -5,9 +5,7 @@ function Navbar() {
 
   const navItem = [
     { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "User", path: "/user" },
-    { name: "Contact", path: "/contact" },
+    { name: "Our Menu", path: "/OurMenu" }
   ]
 
   return (
