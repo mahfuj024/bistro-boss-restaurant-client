@@ -13,6 +13,7 @@ import slide2 from "../../../assets/home/slide2.jpg"
 import slide3 from "../../../assets/home/slide3.jpg"
 import slide4 from "../../../assets/home/slide4.jpg"
 import slide5 from "../../../assets/home/slide5.jpg"
+import chefService from "../../../assets/home/chef-service.jpg"
 import SectionTitle from '../../../components/shared/SectionTitle/SectionTitle';
 
 function Category() {
@@ -51,6 +52,22 @@ function Category() {
                     <h1 className='text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl text-center text-white -mt-7 md:-mt-11 lg:-mt-15'>SALADS</h1>
                 </SwiperSlide>
             </Swiper>
+
+            <div
+                className="h-60 md:h-90 lg:h-143 bg-cover bg-center flex items-center justify-center mt-8 md:mt-16 lg:mt-32"
+                style={{ backgroundImage: `url(${chefService})` }}
+            >
+                <div className="bg-white text-center w-85 md:w-160 lg:w-5xl">
+                    <div className='text-center py-4 md:my-8 lg:py-16 px-4 md:px-8 lg:px-28'>
+                        <h1 className="font-medium text-xl cinzel-font md:text-3xl lg:text-4xl">
+                            Bistro Boss
+                        </h1>
+                        <p className='text-xs md:text-sm lg:text-base mt-1 md:mt-2 lg:mt-3'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, libero accusamus laborum deserunt ratione dolor officiis praesentium! Deserunt magni aperiam dolor eius dolore at, nihil iusto ducimus incidunt quibusdam nemo.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
         </div>
     )
