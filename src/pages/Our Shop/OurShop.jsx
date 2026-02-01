@@ -1,11 +1,8 @@
-import SectionTitle from '../../../components/shared/SectionTitle/SectionTitle'
-import salad from "../../../assets/home/slide1.jpg"
-import featured from "../../../assets/home/featured.jpg"
+import salad from "../../assets/home/slide1.jpg"
 
-function ChefRecommends() {
+function OurShop() {
     return (
-        <div className='mt-8 md:mt-12 lg:mt-25 max-w-7xl mx-auto'>
-            <SectionTitle textTop={"---Should Try---"} textBottom={"CHEF RECOMMENDS"}></SectionTitle>
+        <div>
 
             <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 justify-items-center mt-10">
 
@@ -91,26 +88,8 @@ function ChefRecommends() {
                 </div>
 
             </div>
-
-            <div
-                className="hero mt-8 md:mt-12 lg:mt-25"
-                style={{ backgroundImage: `url(${featured})` }}
-            >
-                <div className="hero-overlay"></div>
-                <div className="hero-content text-white text-center p-10 md:py-16 lg:py-28">
-                    <div className="max-w-md">
-                        <h1 className="font-medium text-2xl md:text-4xl lg:text-5xl">FROM OUR MENU</h1>
-                        <p className='text-base md:text-lg lg:text-xl mt-2 md:mt-5 lg:mt-6 font-light'> March 20, 2023
-                            WHERE CAN I GET SOME?</p>
-                        <p className='text-sm md:text-base lg:text-lg mt-1 md:mt-3 lg:mt-4 font-light'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error voluptate facere, deserunt dolores maiores quod nobis quas quasi. Eaque repellat recusandae ad laudantium tempore consequatur consequuntur omnis ullam maxime tenetur.
-                        </p>
-                        <button className="btn mt-2 md:mt-5 lg:mt-6 text-sm lg:text-base">Read More</button>
-                    </div>
-                </div>
-            </div>
         </div>
     )
 }
 
-export default ChefRecommends
+export default OurShop

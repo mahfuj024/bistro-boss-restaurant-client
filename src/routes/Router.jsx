@@ -3,6 +3,7 @@ import ErrorPage from "../pages/Error/ErrorPage";
 import Home from "../pages/Home/Home";
 import { createBrowserRouter } from "react-router-dom";
 import OurMenu from "../pages/Our Menu/OurMenu";
+import OurShop from "../pages/Our Shop/OurShop";
 
 export const router = createBrowserRouter([
   {
@@ -11,7 +12,8 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, Component : Home },
-      {path : "/OurMenu", Component : OurMenu}
+      {path : "/OurMenu", Component : OurMenu},
+      {path : "/OurShop", Component : OurShop}
     ]
   }
 ]);
