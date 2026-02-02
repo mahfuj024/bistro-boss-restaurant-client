@@ -3,7 +3,7 @@ function Footer() {
   return (
     <div>
 
-      <div className="flex flex-col md:flex-row md:min-h-75 lg:min-h-96">
+      <div className="flex flex-col md:flex-row md:min-h-75 lg:min-h-96 mt-8 md:mt-12 lg:mt-25">
 
         {/* Contact Us Section */}
         <div className='bg-[#1d2939] text-white text-center p-8 md:p-0 flex-1 flex flex-col items-center justify-center'>
