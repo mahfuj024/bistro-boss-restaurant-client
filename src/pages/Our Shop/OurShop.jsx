@@ -1,8 +1,12 @@
 import salad from "../../assets/home/slide1.jpg"
+import { Helmet } from 'react-helmet-async';
 
 function OurShop() {
     return (
         <div>
+            <Helmet>
+                <title>Bistro boss Shop</title>
+            </Helmet>
 
             <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 justify-items-center mt-10">
 

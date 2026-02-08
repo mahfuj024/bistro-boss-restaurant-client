@@ -3,10 +3,15 @@ import Category from './Category/Category'
 import ChefRecommends from './ChefRecommends/ChefRecommends'
 import Menu from './Menu/Menu'
 import Testimonials from './Testimonials/Testimonials'
+import { Helmet } from 'react-helmet-async';
 
 function Home() {
   return (
     <div>
+      <Helmet>
+        <title>Bistro boss restaurant</title>
+      </Helmet>
+
       <Banner></Banner>
       <Category></Category>
       <Menu></Menu>
