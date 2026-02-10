@@ -7,58 +7,70 @@ import Swal from 'sweetalert2'
 function ChefRecommends() {
     return (
         <div className='mt-8 md:mt-12 lg:mt-25 max-w-7xl mx-auto'>
+
+            <div className="bg-black text-white mb-8 md:mb-12 lg:mb-25 text-center">
+                <h1 className="py-8 md:py-10 lg:py-24 text-xl md:text-3xl lg:text-4xl">Call Us: +88 0192345678910</h1>
+            </div>
+
             <SectionTitle textTop={"---Should Try---"} textBottom={"CHEF RECOMMENDS"}></SectionTitle>
 
             <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 justify-items-center mt-10">
 
                 {/* Card 1 */}
-                <div className="card bg-[#F3F3F3] w-full max-w-sm shadow-md">
+                <div className="card w-full max-w-sm bg-[#F3F3F3] shadow-md rounded-xl transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+
+                    {/* Image */}
                     <figure>
                         <img
-                            className="h-64 w-full object-cover"
-                            src={salad}
-                            alt="salad image"
+                            className="h-64 w-full object-cover rounded-t-xl transition-transform duration-300 hover:scale-105"
+                            src={salad}  // তোমার image variable
+                            alt="Salad"
                         />
                     </figure>
 
-                    <div className="card-body items-center text-center">
-                        <h2 className="card-title text-xl font-semibold">
+                    {/* Card Body */}
+                    <div className="card-body items-center text-center px-4 py-4 md:px-5 md:py-5 lg:px-6 lg:py-6">
+                        <h2 className="card-title text-xl md:text-xl lg:text-2xl font-semibold text-gray-800">
                             Caeser Salad
                         </h2>
 
-                        <p className="text-base text-gray-600">
+                        <p className="text-sm md:text-base lg:text-lg text-gray-600 mt-2 md:mt-3">
                             Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
                         </p>
 
-                        <div className="card-actions mt-3">
-                            <button className="btn btn-outline btn-warning uppercase">
+                        <div className="card-actions mt-4">
+                            <button className="btn btn-outline btn-warning uppercase text-xs md:text-sm lg:text-sm px-3 md:px-4 lg:px-5 py-1 md:py-2 lg:py-2 hover:bg-[#D99904] hover:text-white transition-colors duration-300">
                                 Add To Cart
                             </button>
                         </div>
                     </div>
                 </div>
 
+
                 {/* Card 2 */}
-                <div className="card bg-[#F3F3F3] w-full max-w-sm shadow-md">
+                <div className="card w-full max-w-sm bg-[#F3F3F3] shadow-md rounded-xl transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+
+                    {/* Image */}
                     <figure>
                         <img
-                            className="h-64 w-full object-cover"
-                            src={salad}
-                            alt="salad image"
+                            className="h-64 w-full object-cover rounded-t-xl transition-transform duration-300 hover:scale-105"
+                            src={salad}  // তোমার image variable
+                            alt="Salad"
                         />
                     </figure>
 
-                    <div className="card-body items-center text-center">
-                        <h2 className="card-title text-xl font-semibold">
+                    {/* Card Body */}
+                    <div className="card-body items-center text-center px-4 py-4 md:px-5 md:py-5 lg:px-6 lg:py-6">
+                        <h2 className="card-title text-xl md:text-xl lg:text-2xl font-semibold text-gray-800">
                             Caeser Salad
                         </h2>
 
-                        <p className="text-base text-gray-600">
+                        <p className="text-sm md:text-base lg:text-lg text-gray-600 mt-2 md:mt-3">
                             Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
                         </p>
 
-                        <div className="card-actions mt-3">
-                            <button className="btn btn-outline btn-warning uppercase">
+                        <div className="card-actions mt-4">
+                            <button className="btn btn-outline btn-warning uppercase text-xs md:text-sm lg:text-sm px-3 md:px-4 lg:px-5 py-1 md:py-2 lg:py-2 hover:bg-[#D99904] hover:text-white transition-colors duration-300">
                                 Add To Cart
                             </button>
                         </div>
@@ -66,31 +78,35 @@ function ChefRecommends() {
                 </div>
 
                 {/* Card 3 */}
-                <div className="card bg-[#F3F3F3] w-full max-w-sm shadow-md">
+                <div className="card w-full max-w-sm bg-[#F3F3F3] shadow-md rounded-xl transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
+
+                    {/* Image */}
                     <figure>
                         <img
-                            className="h-64 w-full object-cover"
-                            src={salad}
-                            alt="salad image"
+                            className="h-64 w-full object-cover rounded-t-xl transition-transform duration-300 hover:scale-105"
+                            src={salad}  // তোমার image variable
+                            alt="Salad"
                         />
                     </figure>
 
-                    <div className="card-body items-center text-center">
-                        <h2 className="card-title text-xl font-semibold">
+                    {/* Card Body */}
+                    <div className="card-body items-center text-center px-4 py-4 md:px-5 md:py-5 lg:px-6 lg:py-6">
+                        <h2 className="card-title text-xl md:text-xl lg:text-2xl font-semibold text-gray-800">
                             Caeser Salad
                         </h2>
 
-                        <p className="text-base text-gray-600">
+                        <p className="text-sm md:text-base lg:text-lg text-gray-600 mt-2 md:mt-3">
                             Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets.
                         </p>
 
-                        <div className="card-actions mt-3">
-                            <button className="btn btn-outline btn-warning uppercase">
+                        <div className="card-actions mt-4">
+                            <button className="btn btn-outline btn-warning uppercase text-xs md:text-sm lg:text-sm px-3 md:px-4 lg:px-5 py-1 md:py-2 lg:py-2 hover:bg-[#D99904] hover:text-white transition-colors duration-300">
                                 Add To Cart
                             </button>
                         </div>
                     </div>
                 </div>
+
 
             </div>
 

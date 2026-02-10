@@ -21,7 +21,7 @@ function Category() {
         <div className='mt-8 md:mt-12 lg:mt-25 max-w-7xl mx-auto'>
             <SectionTitle textTop={"---From 11:00am to 10:00pm---"} textBottom={"ORDER ONLINE"}></SectionTitle>
 
-                <Swiper
+            {/* <Swiper
                     // slidesPerView={4}
                     spaceBetween={30}
                     freeMode={true}
@@ -63,7 +63,125 @@ function Category() {
                         <img src={slide5} alt="slider image" />
                         <h1 className='text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl text-center text-white -mt-7 md:-mt-11 lg:-mt-15'>SALADS</h1>
                     </SwiperSlide>
-                </Swiper>
+                </Swiper> */}
+
+            {/* <Swiper
+                spaceBetween={30}
+                freeMode={true}
+                pagination={{
+                    clickable: true,
+                }}
+                modules={[FreeMode, Pagination]}
+                className="mySwiper"
+                breakpoints={{
+                    0: { slidesPerView: 2 },
+                    768: { slidesPerView: 3 },
+                    1024: { slidesPerView: 4 },
+                }}
+            >
+                <SwiperSlide>
+                    <div className="relative">
+                        <img
+                            src={slide1}
+                            alt="SALADS"
+                            className="w-full h-36 md:h-48 lg:h-64 object-cover rounded-lg"
+                        />
+                        <h1 className='absolute bottom-3 w-full text-center text-white text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl'>
+                            SALADS
+                        </h1>
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <div className="relative">
+                        <img
+                            src={slide2}
+                            alt="PIZZAS"
+                            className="w-full h-36 md:h-48 lg:h-64 object-cover rounded-lg"
+                        />
+                        <h1 className='absolute bottom-3 w-full text-center text-white text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl'>
+                            PIZZAS
+                        </h1>
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <div className="relative">
+                        <img
+                            src={slide3}
+                            alt="SOUPS"
+                            className="w-full h-36 md:h-48 lg:h-64 object-cover rounded-lg"
+                        />
+                        <h1 className='absolute bottom-3 w-full text-center text-white text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl'>
+                            SOUPS
+                        </h1>
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <div className="relative">
+                        <img
+                            src={slide4}
+                            alt="DESSERTS"
+                            className="w-full h-36 md:h-48 lg:h-64 object-cover rounded-lg"
+                        />
+                        <h1 className='absolute bottom-3 w-full text-center text-white text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl'>
+                            DESSERTS
+                        </h1>
+                    </div>
+                </SwiperSlide>
+
+                <SwiperSlide>
+                    <div className="relative">
+                        <img
+                            src={slide5}
+                            alt="SALADS"
+                            className="w-full h-36 md:h-48 lg:h-64 object-cover rounded-lg"
+                        />
+                        <h1 className='absolute bottom-3 w-full text-center text-white text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl'>
+                            SALADS
+                        </h1>
+                    </div>
+                </SwiperSlide>
+            </Swiper> */}
+
+            <Swiper
+                spaceBetween={30}
+                freeMode={true}
+                pagination={{
+                    clickable: true,
+                    el: '.custom-pagination', // Custom pagination container
+                }}
+                modules={[FreeMode, Pagination]}
+                className="mySwiper"
+                breakpoints={{
+                    0: { slidesPerView: 2 },
+                    768: { slidesPerView: 3 },
+                    1024: { slidesPerView: 4 },
+                }}
+            >
+                {/* Slides */}
+                {[slide1, slide2, slide3, slide4, slide5].map((slide, index) => (
+                    <SwiperSlide key={index}>
+                        <div className="relative">
+                            <img
+                                src={slide}
+                                alt={`Slide ${index + 1}`}
+                                className="w-full h-52 md:h-64 lg:h-76 object-cover rounded-lg"
+                            />
+                            <h1 className='absolute bottom-3 w-full text-center text-white text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl'>
+                                {["SALADS", "PIZZAS", "SOUPS", "DESSERTS", "SALADS"][index]}
+                            </h1>
+                        </div>
+                    </SwiperSlide>
+                ))}
+
+                {/* Custom Pagination */}
+                <div className="custom-pagination mt-2 flex justify-center gap-2"></div>
+            </Swiper>
+
+
+
 
             <div
                 className="h-60 md:h-90 lg:h-143 bg-cover bg-center flex items-center justify-center mt-8 md:mt-16 lg:mt-32"

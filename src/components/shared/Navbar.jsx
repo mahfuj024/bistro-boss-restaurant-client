@@ -6,7 +6,7 @@ function Navbar() {
   const navItem = [
     { name: "Home", path: "/" },
     { name: "Our Menu", path: "/OurMenu" },
-    {name : "Our Shop", path : "/OurShop"}
+    { name: "Our Shop", path: "/OurShop" }
   ]
 
   return (
@@ -38,7 +38,7 @@ function Navbar() {
         </div>
         <Link to="/">
           <p className='text-xl md:text-2xl lg:text-3xl font-bold cinzel-font'>BISTRO BOSS</p>
-          <p class="tracking-[3px] md:tracking-[4px] font-semibold text-base md:text-lg lg:text-2xl mt-0 lg:mt-1 cinzel-font">RESTAURANT</p>
+          <p className="tracking-[3px] md:tracking-[4px] font-semibold text-base md:text-lg lg:text-2xl mt-0 lg:mt-1 cinzel-font">RESTAURANT</p>
         </Link>
       </div>
 
