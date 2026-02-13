@@ -16,30 +16,36 @@ function OrderFood() {
             <div className="flex justify-center mt-8 md:mt-12 lg:mt-25">
                 <Tabs>
                     {/* Tab Titles */}
-                    <TabList className="flex border-b-0 gap-2 md:gap-6 lg:gap-12">
+                    <TabList className="flex border-b-0 gap-0 md:gap-4 lg:gap-10">
                         <Tab
                             className="text-black px-4 py-2 cursor-pointer font-semibold border-b-0 text-sm md:text-base lg:text-lg"
-                            selectedClassName="!text-[#CD9003] !border-b-4 !border-[#CD9003]"
+                            selectedClassName="!text-[#CD9003] !border-b-3 !border-[#CD9003]"
                         >
                             DESSERT
                         </Tab>
                         <Tab
                             className="text-black px-4 py-2 cursor-pointer font-semibold border-b-0 text-sm md:text-base lg:text-lg"
-                            selectedClassName="!text-[#CD9003] !border-b-4 !border-[#CD9003]"
+                            selectedClassName="!text-[#CD9003] !border-b-3 !border-[#CD9003]"
                         >
                             PIZZA
                         </Tab>
                         <Tab
                             className="text-black px-4 py-2 cursor-pointer font-semibold border-b-0 text-sm md:text-base lg:text-lg"
-                            selectedClassName="!text-[#CD9003] !border-b-4 !border-[#CD9003]"
+                            selectedClassName="!text-[#CD9003] !border-b-3 !border-[#CD9003]"
                         >
                             SALAD
                         </Tab>
                         <Tab
                             className="text-black px-4 py-2 cursor-pointer font-semibold border-b-0 text-sm md:text-base lg:text-lg"
-                            selectedClassName="!text-[#CD9003] !border-b-4 !border-[#CD9003]"
+                            selectedClassName="!text-[#CD9003] !border-b-3 !border-[#CD9003]"
                         >
                             SOUPS
+                        </Tab>
+                        <Tab
+                            className="text-black px-4 py-2 cursor-pointer font-semibold border-b-0 text-sm md:text-base lg:text-lg"
+                            selectedClassName="!text-[#CD9003] !border-b-3 !border-[#CD9003]"
+                        >
+                            DRINKS
                         </Tab>
                     </TabList>
 
@@ -57,6 +63,9 @@ function OrderFood() {
                         </TabPanel>
                         <TabPanel>
                             <h1>SOUPS</h1>
+                        </TabPanel>
+                        <TabPanel>
+                            <h1>DRINKS</h1>
                         </TabPanel>
                     </div>
                 </Tabs>

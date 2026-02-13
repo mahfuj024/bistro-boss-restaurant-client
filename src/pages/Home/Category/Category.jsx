@@ -167,7 +167,7 @@ function Category() {
                             <img
                                 src={slide}
                                 alt={`Slide ${index + 1}`}
-                                className="w-full h-52 md:h-64 lg:h-76 object-cover rounded-lg"
+                                className="w-full h-52 md:h-64 lg:h-76 object-cover"
                             />
                             <h1 className='absolute bottom-3 w-full text-center text-white text-base md:text-2xl lg:text-3xl font-light drop-shadow-2xl'>
                                 {["SALADS", "PIZZAS", "SOUPS", "DESSERTS", "SALADS"][index]}
