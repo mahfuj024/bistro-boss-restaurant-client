@@ -2,8 +2,8 @@ import MainLayouts from "../layouts/MainLayouts";
 import ErrorPage from "../pages/Error/ErrorPage";
 import Home from "../pages/Home/Home";
 import { createBrowserRouter } from "react-router-dom";
-import OurMenu from "../pages/Our Menu/OurMenu";
-import OurShop from "../pages/Our Shop/OurShop";
+import OurMenu from "../pages/OurMenu/OurMenu";
+import OrderFood from "../pages/OrderFood/OrderFood";
 
 export const router = createBrowserRouter([
   {
@@ -12,8 +12,8 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, Component : Home },
-      {path : "/OurMenu", Component : OurMenu},
-      {path : "/OurShop", Component : OurShop}
+      {path : "OurMenu", Component : OurMenu},
+      {path : "OrderFood", Component : OrderFood},
     ]
   }
 ]);

@@ -1,7 +1,6 @@
 import SectionTitle from '../../../components/shared/SectionTitle/SectionTitle'
 import salad from "../../../assets/home/slide1.jpg"
 import featured from "../../../assets/home/featured.jpg"
-import Swal from 'sweetalert2'
 
 
 function ChefRecommends() {
