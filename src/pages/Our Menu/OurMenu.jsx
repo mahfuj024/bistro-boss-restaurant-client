@@ -12,13 +12,9 @@ function OurMenu() {
             </Helmet>
 
             <Cover bgImage={banner3} title="Our Menu" description="WOULD YOU LIKE TO TRY A DISH?"></Cover>
-            <Menu></Menu>
+            
 
-            <Cover bgImage={banner3} title="Our Menu" description="WOULD YOU LIKE TO TRY A DISH?"></Cover>
-            <Menu></Menu>
-
-            <Cover bgImage={banner3} title="Our Menu" description="WOULD YOU LIKE TO TRY A DISH?"></Cover>
-            <Menu></Menu>
+            
         </div>
     )
 }
