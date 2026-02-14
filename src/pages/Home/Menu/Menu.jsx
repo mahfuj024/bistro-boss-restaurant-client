@@ -31,7 +31,7 @@ function Menu() {
             <div className="text-center mt-6 md:mt-10 lg:mt-10">
                 <Link
                     to={"/OurMenu"}
-                    className="font-medium inline-block border-0 border-b-2 border-black
+                    className="font-medium btn btn-outline border-0 border-b-2 border-black
          text-base md:text-lg lg:text-[20px]
          -mb-1"
                 >

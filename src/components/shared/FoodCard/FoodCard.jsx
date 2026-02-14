@@ -1,8 +1,8 @@
-import React from 'react'
 
-function FoodCard({item}) {
 
-    const {image, name, recipe, category, price} = item
+function FoodCard({ item }) {
+
+    const { image, name, recipe, category, price } = item
 
     return (
         <div>
@@ -13,19 +13,23 @@ function FoodCard({item}) {
                     <img
                         className="h-64 w-full object-cover rounded-t-xl transition-transform duration-300 hover:scale-105"
                         src={image}  // তোমার image variable
-                        alt="Salad"
+                        alt={name}
                     />
+                    <h3 className="absolute bg-stone-900 text-sm md:text-base lg:text-base font-medium text-white px-3 right-4 top-1 py-1 rounded-2xl mt-2 md:mt-3">
+                         ${price}
+                    </h3>
                 </figure>
 
                 {/* Card Body */}
                 <div className="card-body items-center text-center px-4 py-4 md:px-5 md:py-5 lg:px-6 lg:py-6">
-                    <h2 className="card-title text-xl md:text-xl lg:text-2xl font-semibold text-gray-800">
-                       {name}
+                    <h2 className="card-title text-xl md:text-xl lg:text-[22px] font-semibold text-gray-800">
+                        {name}
                     </h2>
 
-                    <p className="text-sm md:text-base lg:text-lg text-gray-600 mt-2 md:mt-3">
-                        {recipe}
+                    <p className="text-sm md:text-base lg:text-base text-gray-600 mt-2 lg:mt-3">
+                        {recipe.split(" ").slice(0, 10).join(" ")}...
                     </p>
+
 
                     <div className="card-actions mt-4">
                         <button className="btn btn-outline btn-warning uppercase text-xs md:text-sm lg:text-sm px-3 md:px-4 lg:px-5 py-1 md:py-2 lg:py-2 hover:bg-[#D99904] hover:text-white transition-colors duration-300">

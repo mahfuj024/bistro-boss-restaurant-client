@@ -18,6 +18,7 @@ function OurMenu() {
     const pizza = menu.filter(item => item.category === "pizza")
     const salad = menu.filter(item => item.category === "salad")
     const soup = menu.filter(item => item.category === "soup")
+    const drinks = menu.filter(item => item.category === "drinks")
 
     return (
         <div>
@@ -38,25 +39,31 @@ function OurMenu() {
             {/* dessert section */}
             <section className='mt-6 md:mt-10 lg:mt-20'>
                 <Cover bgImage={dessertBg} title="DESSERT" description="WOULD YOU LIKE TO TRY A DISH?"></Cover>
-                 <MenuCategory items={dessert} btnTitle="ORDER YOUR FAVOURITE FOOD"></MenuCategory>
+                 <MenuCategory items={dessert} title="dessert" btnTitle="ORDER YOUR FAVOURITE FOOD"></MenuCategory>
             </section>
 
             {/* pizza section */}
             <section className='mt-6 md:mt-10 lg:mt-20'>
                 <Cover bgImage={pizzaBg} title="PIZZA" description="WOULD YOU LIKE TO TRY A DISH?"></Cover>
-                 <MenuCategory items={pizza} btnTitle="ORDER YOUR FAVOURITE FOOD"></MenuCategory>
+                 <MenuCategory items={pizza} title="pizza" btnTitle="ORDER YOUR FAVOURITE FOOD"></MenuCategory>
             </section>
 
             {/* salad section */}
             <section className='mt-6 md:mt-10 lg:mt-20'>
                 <Cover bgImage={saladBg} title="SALAD" description="WOULD YOU LIKE TO TRY A DISH?"></Cover>
-                 <MenuCategory items={salad} btnTitle="ORDER YOUR FAVOURITE FOOD"></MenuCategory>
+                 <MenuCategory items={salad} title="salad" btnTitle="ORDER YOUR FAVOURITE FOOD"></MenuCategory>
             </section>
 
              {/* soups section */}
             <section className='mt-6 md:mt-10 lg:mt-20'>
                 <Cover bgImage={soupBg} title="SOUPS" description="WOULD YOU LIKE TO TRY A DISH?"></Cover>
-                 <MenuCategory items={soup} btnTitle="ORDER YOUR FAVOURITE FOOD"></MenuCategory>
+                 <MenuCategory items={soup} title="soup" btnTitle="ORDER YOUR FAVOURITE FOOD"></MenuCategory>
+            </section>
+
+            {/* drinks section */}
+            <section className='mt-6 md:mt-10 lg:mt-20'>
+                <Cover bgImage={dessertBg} title="DRINKS" description="WOULD YOU LIKE TO TRY A DISH?"></Cover>
+                 <MenuCategory items={drinks} title="drinks" btnTitle="ORDER YOUR FAVOURITE FOOD"></MenuCategory>
             </section>
         
         </div>

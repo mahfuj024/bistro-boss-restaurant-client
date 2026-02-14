@@ -11,9 +11,11 @@ export const router = createBrowserRouter([
     Component: MainLayouts,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, Component : Home },
-      {path : "OurMenu", Component : OurMenu},
-      {path : "OrderFood", Component : OrderFood},
+      { index: true, Component: Home },
+      { path: "OurMenu", Component: OurMenu },
+      { path: "OrderFood", Component: OrderFood }, // new
+      { path: "OrderFood/:category", Component: OrderFood },
     ]
+
   }
 ]);

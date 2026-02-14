@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 
 
-function MenuCategory({ items, btnTitle, btnLocation }) {
+function MenuCategory({ items, title, btnTitle, btnLocation }) {
   return (
     <div className='mt-6 md:mt-10 lg:mt-14 grid grid-cols-1 lg:grid-cols-2 p-2 lg:p-0 space-y-4 md:space-y-6 lg:space-y-10 max-w-7xl mx-auto'>
 
@@ -20,8 +20,8 @@ function MenuCategory({ items, btnTitle, btnLocation }) {
 
       <div className="lg:col-span-2 flex justify-center mt-6 md:mt-10 lg:mt-10">
         <Link
-          to={`/OrderFood`}
-          className="font-medium inline-block border-0 border-b-2 border-black
+          to={`/OrderFood/${title}`}
+          className="font-medium btn btn-outline border-0 border-b-2 border-black
          text-base md:text-lg lg:text-[20px]
          -mb-1"
         >
