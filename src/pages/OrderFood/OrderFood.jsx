@@ -1,4 +1,3 @@
-import Cover from '../Shared/Cover/Cover';
 import orderFoodBg from "../../assets/shop/banner2.jpg";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
@@ -7,6 +6,7 @@ import { useState } from 'react';
 import FoodCard from '../../components/shared/FoodCard/FoodCard';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import Cover from "../../components/shared/Cover/Cover";
 
 function OrderFood() {
     const categories = ["salad", "pizza", "soup", "dessert", "drinks"]

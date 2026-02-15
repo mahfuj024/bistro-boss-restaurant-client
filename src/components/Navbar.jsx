@@ -6,7 +6,7 @@ function Navbar() {
   const navItem = [
     { name: "Home", path: "/" },
     { name: "Our Menu", path: "/OurMenu" },
-    {name : "Order Food", path: "/OrderFood/salad"}
+    { name: "Order Food", path: "/OrderFood/salad" }
   ]
 
   return (
@@ -63,7 +63,12 @@ function Navbar() {
       </div>
 
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link to="/register">
+          <button className='btn'>Register</button>
+        </Link>
+        <Link to="/login">
+          <button className='btn'>Login</button>
+        </Link>
       </div>
     </div>
   )
