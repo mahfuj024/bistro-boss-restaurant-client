@@ -7,6 +7,7 @@ import OrderFood from "../pages/OrderFood/OrderFood";
 import AuthLayouts from "../layouts/AuthLayouts";
 import Register from "../pages/Auth/Register";
 import Login from "../pages/Auth/Login";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -16,8 +17,8 @@ export const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "OurMenu", Component: OurMenu },
-      { path: "OrderFood", Component: OrderFood }, // new
-      { path: "OrderFood/:category", Component: OrderFood },
+      { path: "OrderFood", element : <PrivateRoute><OrderFood></OrderFood></PrivateRoute> }, // new
+      { path: "OrderFood/:category", element : <PrivateRoute><OrderFood></OrderFood></PrivateRoute> },
 
     ]
   },

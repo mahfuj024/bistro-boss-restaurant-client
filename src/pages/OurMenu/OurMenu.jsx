@@ -33,7 +33,7 @@ function OurMenu() {
                 <div className='mt-8 md:mt-12 lg:mt-24'>
                     <SectionTitle textTop="---Don't miss---" textBottom="TODAY'S OFFER"></SectionTitle>
                 </div>
-                <MenuCategory items={todayOffer} btnTitle="ORDER YOUR FAVOURITE FOOD"></MenuCategory>
+                <MenuCategory items={todayOffer} title="salad" btnTitle="ORDER YOUR FAVOURITE FOOD"></MenuCategory>
             </section>
 
             {/* dessert section */}
