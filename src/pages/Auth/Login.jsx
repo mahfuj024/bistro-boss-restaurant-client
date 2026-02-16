@@ -1,13 +1,35 @@
 import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import LoginWithGoogle from './LoginWithGoogle'
 import { useForm } from 'react-hook-form'
 
 function Login() {
 
   const { register, handleSubmit } = useForm()
+  const location = useLocation()
 
-  const onSubmit = (data) => console.log(data)
+  // after login redirect back
+  const from = location.state?.from?.pathname || "/";
+
+  const onSubmit = (data) => {
+    const email = data?.email
+    const password = data?.password
+
+    signIn(email, password)
+      .then((userCredential) => {
+        const user = userCredential?.user
+        if (user) {
+          toast("Login successful");
+          navigate(from, { replace: true })
+        }
+      })
+      .catch(error => {
+        const errorMessage = error?.message
+        if (errorMessage) {
+          toast("Invalid email or password ❌");
+        }
+      })
+  }
 
   return (
     <div className='p-2 md:p-4 lg:p-8 min-h-screen'>

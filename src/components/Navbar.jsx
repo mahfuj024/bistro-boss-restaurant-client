@@ -11,6 +11,7 @@ function Navbar() {
 
   return (
     <div className="navbar px-0 md:px-8 lg:px-12 bg-[#15151580] fixed top-0 z-50 text-white py-0 md:py-2 lg:py-4">
+      {/* navbar start */}
       <div className="navbar-start">
         <div className="dropdown ">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -42,6 +43,7 @@ function Navbar() {
         </Link>
       </div>
 
+      {/* navbar center */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 font-bold text-lg space-x-5">
           {
@@ -62,6 +64,7 @@ function Navbar() {
         </ul>
       </div>
 
+      {/* navbar end */}
       <div className="navbar-end">
         <Link to="/register">
           <button className='btn'>Register</button>

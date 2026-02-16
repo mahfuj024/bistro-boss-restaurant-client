@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import LoginWithGoogle from "./LoginWithGoogle"
 import { useForm } from "react-hook-form"
 
@@ -7,8 +7,35 @@ import { useForm } from "react-hook-form"
 function Register() {
 
   const { register, handleSubmit, formState: { errors } } = useForm()
+  const location = useLocation()
 
-  const onSubmit = (data) => console.log(data)
+  // after register redirect back
+  const from = location.state?.from?.pathname || "/";
+
+  const onSubmit = (data) => {
+    const name = data?.name;
+    const email = data?.email;
+    const password = data?.password;
+
+    createUserWithEmailAndPassword( email, password)
+      .then((result) => {
+        const user = result.user;
+
+        // user name update
+        updateProfile(user, {
+          displayName: name,
+        }).then(() => {
+          console.log("Profile Updated");
+        });
+
+        // redirect
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
 
   return (
     <div className='p-2 md:p-4 lg:p-8 min-h-screen'>
