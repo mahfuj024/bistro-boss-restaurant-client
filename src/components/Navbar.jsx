@@ -3,9 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext"; // path check
 import { toast } from "react-toastify";
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
+import useCart from "../hooks/useCart";
 
 function Navbar() {
   const { user, logOut } = useContext(AuthContext);
+  const [cart] = useCart()
 
   const handleLogOut = () => {
     logOut()
@@ -87,7 +89,7 @@ function Navbar() {
           <FaShoppingCart className="w-5 h-5 md:w-6 md:h-6 block" />
 
           <span className="absolute -top-3 -right-3 md:-top-3 md:-right-4 bg-red-500 text-white text-[10px] md:text-xs font-semibold w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center">
-            0
+            {cart.length}
           </span>
         </button>
 
