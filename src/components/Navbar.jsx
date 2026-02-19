@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext"; // path check
 import { toast } from "react-toastify";
+import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
 
 function Navbar() {
   const { user, logOut } = useContext(AuthContext);
@@ -80,36 +81,49 @@ function Navbar() {
       </div>
 
       <div className="navbar-end flex items-center gap-2 mr-2 md:mr-0">
-        {user ? (
-          <div className="flex items-center gap-2">
-            {/* User Icon */}
-            <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
-              {user.photoURL ? (
-                <img src={user.photoURL} alt="User" className="w-full h-full object-cover" />
-              ) : (
-                <span className="text-sm font-bold text-gray-700">
-                  {user.displayName ? user.displayName[0] : "U"}
-                </span>
-              )}
-            </div>
 
+          {/* Cart Icon */}
+        <button className="relative cursor-pointer flex items-center justify-center mr-4 md:mr-6">
+          <FaShoppingCart className="w-5 h-5 md:w-6 md:h-6 block" />
+
+          <span className="absolute -top-3 -right-3 md:-top-3 md:-right-4 bg-red-500 text-white text-[10px] md:text-xs font-semibold w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center">
+            0
+          </span>
+        </button>
+
+        {user ? (
+          <div className="flex items-center gap-2 md:gap-3">
             {/* Logout Button */}
             <button
               onClick={handleLogOut}
-              className="btn bg-white border border-gray-300 text-black hover:bg-[#D99904] hover:text-white"
+              className="text-base font-medium md:font-bold md:text-lg hover:text-[#EEFF25] cursor-pointer"
             >
               Log out
             </button>
+
+            {/* User Profile Pic or Icon */}
+            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
+              {user.photoURL ? (
+                <img
+                  src={user.photoURL}
+                  alt="User"
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <FaUserCircle className="text-gray-500 w-5 h-5 md:w-7 md:h-7" />
+              )}
+            </div>
           </div>
         ) : (
           <Link
             to="/login"
-            className="btn bg-white border border-gray-300 text-black hover:bg-[#D99904] hover:text-white"
+            className="text-base font-medium md:font-bold md:text-lg hover:text-[#EEFF25] cursor-pointer"
           >
             Sign In
           </Link>
         )}
       </div>
+
 
     </div>
   );
