@@ -1,33 +1,48 @@
 import MainLayouts from "../layouts/MainLayouts";
 import ErrorPage from "../pages/Error/ErrorPage";
 import Home from "../pages/Home/Home";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import OurMenu from "../pages/OurMenu/OurMenu";
 import OrderFood from "../pages/OrderFood/OrderFood";
 import AuthLayouts from "../layouts/AuthLayouts";
 import Register from "../pages/Auth/Register";
 import Login from "../pages/Auth/Login";
+import Dashboard from "../layouts/Dashboard";
+import Cart from "../pages/Dashboard/Cart/Cart";
 
-
+// Create Browser Router
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: MainLayouts,
+    element: <MainLayouts />, // ✅ element instead of Component
     errorElement: <ErrorPage />,
     children: [
-      { index: true, Component: Home },
-      { path: "OurMenu", Component: OurMenu },
-      { path: "OrderFood", Component: OrderFood }, // new
-      { path: "OrderFood/:category", Component: OrderFood },
-
-    ]
+      { index: true, element: <Home /> }, // ✅ element
+      { path: "OurMenu", element: <OurMenu /> },
+      { path: "OrderFood", element: <OrderFood /> },
+      { path: "OrderFood/:category", element: <OrderFood /> },
+    ],
   },
   {
     path: "/",
-    Component: AuthLayouts,
+    element: <AuthLayouts />,
     children: [
-      { path: "register", Component: Register },
-      { path: "login", Component: Login }
-    ]
-  }
+      { path: "register", element: <Register /> },
+      { path: "login", element: <Login /> },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard />, // ✅ element
+    children: [
+      { path: "cart", element: <Cart /> }, // ✅ nested route
+      // Add other nested routes here if needed
+    ],
+  },
+
+  // Optional: redirect "/cart" to "/dashboard/cart"
+  {
+    path: "/cart",
+    element: <Navigate to="/dashboard/cart" replace />,
+  },
 ]);

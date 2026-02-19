@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
 import { AuthContext } from "../context/AuthContext"; // path check
 import { toast } from "react-toastify";
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
@@ -19,6 +19,7 @@ function Navbar() {
     { name: "Home", path: "/" },
     { name: "Our Menu", path: "/OurMenu" },
     { name: "Order Food", path: "/OrderFood/salad" },
+    { name: "Dashboard", path: "/dashboard" },
   ];
 
   return (
@@ -85,13 +86,13 @@ function Navbar() {
       <div className="navbar-end flex items-center gap-2 mr-2 md:mr-0">
 
           {/* Cart Icon */}
-        <button className="relative cursor-pointer flex items-center justify-center mr-4 md:mr-6">
+        <Link to="/dashboard/cart" className="relative cursor-pointer flex items-center justify-center mr-4 md:mr-6">
           <FaShoppingCart className="w-5 h-5 md:w-6 md:h-6 block" />
 
           <span className="absolute -top-3 -right-3 md:-top-3 md:-right-4 bg-red-500 text-white text-[10px] md:text-xs font-semibold w-4 h-4 md:w-5 md:h-5 rounded-full flex items-center justify-center">
             {cart.length}
           </span>
-        </button>
+        </Link>
 
         {user ? (
           <div className="flex items-center gap-2 md:gap-3">
