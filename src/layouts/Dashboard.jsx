@@ -149,7 +149,7 @@ function Dashboard() {
             )}
 
             {/* Main Content */}
-            <main className="flex-1 p-5 bg-gray-100 lg:ml-64 mt-20 lg:mt-0 min-h-screen">
+            <main className="flex-1 p-3 bg-gray-100 lg:ml-64 mt-16 md:mt-18 lg:mt-0 min-h-screen">
                 <Outlet />
             </main>
         </div>

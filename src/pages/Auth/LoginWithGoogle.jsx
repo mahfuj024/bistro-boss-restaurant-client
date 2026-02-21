@@ -2,27 +2,53 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 function LoginWithGoogle({ name }) {
     const { googleLogin } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const axiosPublic = useAxiosPublic()
 
     const from = location.state?.from?.pathname || "/";
 
     const handleGoogleLogin = () => {
+
         googleLogin()
             .then((result) => {
+
                 const user = result.user;
-                if (user) {
-                    toast.success(`${name} successful ✅`);
-                    navigate(from, { replace: true });
-                }
+
+                const userInfo = {
+                    name: user?.displayName,
+                    email: user?.email,
+                    role: "user",
+                    createdAt: new Date()
+                };
+
+                // Save user in database
+                axiosPublic.post("/user", userInfo)
+                    .then((res) => {
+
+                        if (res.data.insertedId || res.data.message === "User already exists") {
+
+                            toast.success(`${user?.displayName} Login successful ✅`);
+                            navigate(from, { replace: true });
+
+                        }
+
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        toast.error("Failed to save user in database ❌");
+                    });
+
             })
             .catch((error) => {
                 console.log(error.message);
                 toast.error("Google login failed ❌");
             });
+
     };
 
     return (

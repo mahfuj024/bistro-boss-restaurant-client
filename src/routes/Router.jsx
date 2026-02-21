@@ -9,6 +9,7 @@ import Register from "../pages/Auth/Register";
 import Login from "../pages/Auth/Login";
 import Dashboard from "../layouts/Dashboard";
 import Cart from "../pages/Dashboard/Cart/Cart";
+import PrivateRoute from "./PrivateRoute";
 
 // Create Browser Router
 export const router = createBrowserRouter([
@@ -33,7 +34,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard />, // ✅ element
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>, // ✅ element
     children: [
       { path: "cart", element: <Cart /> }, // ✅ nested route
       // Add other nested routes here if needed

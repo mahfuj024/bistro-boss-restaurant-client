@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import SectionTitle from '../../../components/shared/SectionTitle/SectionTitle'
-import useCart from '../../../hooks/useCart'
-import useAxiosSecure from '../../../hooks/useAxiosSecure'
-import { FaTrashAlt } from "react-icons/fa"
-import Swal from 'sweetalert2'
+import { useState } from "react";
+import SectionTitle from "../../../components/shared/SectionTitle/SectionTitle";
+import useCart from "../../../hooks/useCart";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { FaTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 function Cart() {
-    const [cart, refetch] = useCart()
-    const axiosSecure = useAxiosSecure()
+    const [cart, refetch] = useCart();
+    const axiosSecure = useAxiosSecure();
+    const [showAll, setShowAll] = useState(false);
 
-    const totalPrice = cart.reduce((total, item) => total + item.price, 0)
+    const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
-    const [showAll, setShowAll] = useState(false)
-    const displayItems = showAll ? cart : cart.slice(0, 8) // Default 8 items
+    const displayItems = showAll ? cart : cart.slice(0, 8);
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -22,74 +22,50 @@ function Cart() {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                // Delete request to backend
-                axiosSecure.delete(`/cart/${id}`)
-                    .then(res => {
+                axiosSecure
+                    .delete(`/cart/${id}`)
+                    .then((res) => {
                         if (res.data.deletedCount > 0) {
-                            Swal.fire(
-                                "Deleted!",
-                                "Your item has been deleted.",
-                                "success"
-                            );
-                            refetch(); // Refresh cart data
-                        } else {
-                            Swal.fire(
-                                "Not Found!",
-                                "Item was not found in your cart.",
-                                "error"
-                            );
+                            Swal.fire("Deleted!", "Your item has been deleted.", "success");
+                            refetch();
                         }
                     })
-                    .catch(err => {
-                        console.error(err);
-                        Swal.fire(
-                            "Error!",
-                            "Something went wrong while deleting.",
-                            "error"
-                        );
+                    .catch(() => {
+                        Swal.fire("Error!", "Something went wrong.", "error");
                     });
-
-
-                // Swal.fire({
-                //     title: "Deleted!",
-                //     text: "Your file has been deleted.",
-                //     icon: "success"
-                // });
             }
         });
-    }
+    };
 
     return (
-        <div className='max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 mt-0 lg:mt-3'>
+        <div className="max-w-7xl mx-auto">
 
-            <SectionTitle
-                textTop="---My Cart---"
-                textBottom="WANNA ADD MORE?"
-            />
+            <h1 className="cinzel-font text-2xl md:text-3xl lg:text-4xl font-bold text-center mt-0 md:mt-2 lg:mt-3">My Cart</h1>
 
-            <div className='bg-white p-3 sm:p-4 md:p-6 lg:p-9 rounded-sm mt-6 md:mt-10 lg:mt-14'>
+            <div className="bg-white p-1 sm:p-4 md:p-6 lg:p-9 rounded-sm mt-2 md:mt-4 lg:mt-6">
 
                 {/* Top Summary Section */}
-                <div className='flex flex-col sm:flex-row justify-between items-center gap-3 mb-6'>
-                    <h1 className='cinzel-font text-lg md:text-xl lg:text-[26px] font-bold'>
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-3 mb-6 pt-2 md:pt-0">
+                    <h1 className="cinzel-font text-lg md:text-xl lg:text-[26px] font-bold">
                         Total Orders : {cart.length}
                     </h1>
 
-                    <h1 className='cinzel-font text-lg md:text-xl lg:text-[26px] font-bold'>
+                    <h1 className="cinzel-font text-lg md:text-xl lg:text-[26px] font-bold">
                         Total Price : ${totalPrice.toFixed(2)}
                     </h1>
 
-                    <button className='btn bg-[#D1A05A] outline-none cinzel-font text-white text-sm md:text-lg lg:text-xl font-semibold md:font-bold px-4'>
+                    <button className="btn bg-[#D1A05A] outline-none cinzel-font text-white text-sm md:text-lg lg:text-xl font-semibold md:font-bold px-4">
                         Pay
                     </button>
                 </div>
 
-                {/* Responsive Table */}
-                <div className="overflow-x-auto pt-0 lg:pt-3 rounded-t-lg overflow-hidden">
+                {/* Table Container with Fixed Min Height (Fix Jump Issue) */}
+                <div className="overflow-x-auto rounded-t-lg min-h-50 transition-all duration-300">
                     <table className="table w-full border-separate border-spacing-y-2">
+
                         {/* Table Head */}
                         <thead className="bg-[#D1A05A] text-white h-12 md:h-14 lg:h-16 text-xs sm:text-sm md:text-base lg:text-lg">
                             <tr>
@@ -102,7 +78,7 @@ function Cart() {
                         </thead>
 
                         {/* Table Body */}
-                        <tbody className="text-xs sm:text-sm md:text-base lg:text-lg">
+                        <tbody className="text-xs sm:text-sm md:text-base lg:text-lg transition-all duration-300">
                             {displayItems.map((item, index) => (
                                 <tr key={item._id} className="bg-white">
                                     <td>{index + 1}</td>
@@ -131,7 +107,7 @@ function Cart() {
 
                 {/* Show More / Show Less Button */}
                 {cart.length > 8 && (
-                    <div className="flex justify-center mt-4">
+                    <div className="flex justify-center mt-6">
                         <button
                             onClick={() => setShowAll(!showAll)}
                             className="btn bg-[#D1A05A] outline-none cinzel-font text-white text-sm md:text-lg lg:text-xl font-semibold md:font-bold px-5 hover:bg-[#b8893f] transition"
@@ -140,10 +116,9 @@ function Cart() {
                         </button>
                     </div>
                 )}
-
             </div>
         </div>
-    )
+    );
 }
 
-export default Cart
+export default Cart; 

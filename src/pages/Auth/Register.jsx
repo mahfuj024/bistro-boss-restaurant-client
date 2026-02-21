@@ -3,34 +3,72 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoginWithGoogle from "./LoginWithGoogle";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext"; // path check
+import { AuthContext } from "../../context/AuthContext";
 import { toast } from "react-toastify";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 function Register() {
+
   const { createUser, updateUserProfile } = useContext(AuthContext);
-  const { register: formRegister, handleSubmit, formState: { errors } } = useForm();
   const navigate = useNavigate();
   const location = useLocation();
+  const axiosPublic = useAxiosPublic();
+
+  const {
+    register: formRegister,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm();
+
   const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
-    const name = data?.name;
-    const email = data?.email;
-    const password = data?.password;
 
+    const name = data.name;
+    const email = data.email;
+    const password = data.password;
+
+    // 1️⃣ Create Firebase User
     createUser(email, password)
-      .then((result) => {
-        const user = result.user;
+      .then(() => {
 
-        // update user profile
+        // 2️⃣ Update Firebase Profile
         updateUserProfile({ displayName: name })
           .then(() => {
-            console.log("Profile Updated ✅");
-          })
-          .catch((err) => console.log(err));
 
-        toast.success("Registration successful ✅");
-        navigate(from, { replace: true });
+            // 3️⃣ Save user in MongoDB using axiosPublic
+            const userInfo = {
+              name: name,
+              email: email,
+              role: "user",
+              createdAt: new Date()
+            };
+
+            axiosPublic.post("/user", userInfo)
+              .then(res => {
+
+                if (res.data.insertedId || res.data.message === "User already exists") {
+
+                  toast.success("Registration successful ✅");
+
+                  reset(); // ✅ Form Reset 
+
+                  navigate(from, { replace: true });
+                }
+
+              })
+              .catch((error) => {
+                console.log(error);
+                toast.error("Failed to save user in database ❌");
+              });
+
+          })
+          .catch((error) => {
+            console.log(error);
+            toast.error("Failed to update profile ❌");
+          });
+
       })
       .catch((error) => {
         console.log(error.message);
@@ -41,7 +79,7 @@ function Register() {
   return (
     <div className='p-2 md:p-4 lg:p-8 min-h-screen'>
       <Helmet>
-        <title>Bistro Boss Restaurant Register</title>
+        <title>Bistro Boss Restaurant | Register</title>
       </Helmet>
 
       <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl bg-white shadow-md">
@@ -85,15 +123,27 @@ function Register() {
               placeholder="Password"
               className="w-full px-4 py-3 rounded-md outline-1 outline-stone-300 bg-gray-50 focus:outline-violet-600"
             />
-            {errors.password && <span className='text-red-500'>Password must be at least 6 characters</span>}
+            {errors.password && (
+              <span className='text-red-500'>
+                Password must be at least 6 characters
+              </span>
+            )}
           </div>
 
-          <button type='submit' className="block w-full p-3 text-center bg-[#D99904] text-white rounded-sm font-bold cursor-pointer">Sign up</button>
+          <button
+            type='submit'
+            className="block w-full p-3 text-center bg-[#D99904] text-white rounded-sm font-bold cursor-pointer"
+          >
+            Sign up
+          </button>
+
         </form>
 
         <p className="text-base mt-4 text-center text-[#e2a006]">
           Already have an account?
-          <Link to="/login" className="underline ml-1 hover:text-blue-500">Log In</Link>
+          <Link to="/login" className="underline ml-1 hover:text-blue-500">
+            Log In
+          </Link>
         </p>
 
         <div className="flex items-center pt-4 space-x-1">
