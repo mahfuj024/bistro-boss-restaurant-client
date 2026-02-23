@@ -10,18 +10,21 @@ import Login from "../pages/Auth/Login";
 import Dashboard from "../layouts/Dashboard";
 import Cart from "../pages/Dashboard/Cart/Cart";
 import PrivateRoute from "./PrivateRoute";
+import Contact from "../pages/Contact/Contact";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
 // Create Browser Router
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayouts />, // ✅ element instead of Component
+    element: <MainLayouts />,
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <Home /> }, // ✅ element
+      { index: true, element: <Home /> },
       { path: "OurMenu", element: <OurMenu /> },
       { path: "OrderFood", element: <OrderFood /> },
       { path: "OrderFood/:category", element: <OrderFood /> },
+      { path: "Contact", element: <Contact></Contact> },
     ],
   },
   {
@@ -34,10 +37,14 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>, // ✅ element
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
-      { path: "cart", element: <Cart /> }, // ✅ nested route
-      // Add other nested routes here if needed
+      // Users Routes
+      { path: "cart", element: <Cart /> },
+
+      // Admin Routes
+      { path: "all-users", element: <AllUsers></AllUsers> }
+      
     ],
   },
 

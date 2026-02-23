@@ -4,7 +4,7 @@ function Cover({ bgImage, title, description }) {
 
         <>
             <div
-                className="hero h-100 md:h-150 lg:h-200"
+                className="hero h-75 md:h-130 lg:h-200"
                 style={{
                     backgroundImage: `url("${bgImage}")`,
                 }}
@@ -13,7 +13,7 @@ function Cover({ bgImage, title, description }) {
                     <div className="bg-black/60 p-6 md:h-64 md:w-150 lg:h-112 lg:w-330
     flex flex-col items-center justify-center text-center">
 
-                        <h1 className="mb-5 text-5xl lg:text-6xl font-bold cinzel-font text-white uppercase">
+                        <h1 className="mb-5 text-3xl md:text-5xl lg:text-6xl font-bold cinzel-font text-white uppercase">
                             {title}
                         </h1>
 

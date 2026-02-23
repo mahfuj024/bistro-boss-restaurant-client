@@ -3,12 +3,14 @@ import { AuthContext } from "./AuthContext"
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import auth from "../firebase/firebase.init"
 import { GoogleAuthProvider } from "firebase/auth";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 function AuthProvider({ children }) {
 
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
     const googleProvider = new GoogleAuthProvider();
+    const axiosPublic = useAxiosPublic()
 
     // ✅ Register new user
     const createUser = (email, password) => {
@@ -39,14 +41,34 @@ function AuthProvider({ children }) {
         return updateProfile(auth.currentUser, profileInfo)
     }
 
-    // ✅ Track login user
+    // ✅ Track Current user
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser)
-            setLoading(false)
-        })
-        return () => unsubscribe()
-    }, [])
+        const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+            setUser(currentUser);
+
+            if (currentUser?.email) {
+                try {
+                    const userInfo = { email: currentUser.email };
+                    const res = await axiosPublic.post("/jwt", userInfo);
+
+                    if (res.data?.token) {
+                        localStorage.setItem("access-token", res.data.token);
+                    } else {
+                        localStorage.removeItem("access-token");
+                    }
+                } catch (error) {
+                    console.error("JWT fetch failed:", error);
+                    localStorage.removeItem("access-token");
+                }
+            } else {
+                localStorage.removeItem("access-token");
+            }
+
+            setLoading(false);
+        });
+
+        return () => unsubscribe();
+    }, [axiosPublic]);
 
     const authInfo = {
         createUser,

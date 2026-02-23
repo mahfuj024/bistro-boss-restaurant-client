@@ -1,5 +1,4 @@
 import { useState } from "react";
-import SectionTitle from "../../../components/shared/SectionTitle/SectionTitle";
 import useCart from "../../../hooks/useCart";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaTrashAlt } from "react-icons/fa";

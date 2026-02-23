@@ -8,15 +8,22 @@ import {
     FaStar,
     FaBook,
     FaCreditCard,
-    FaUtensils
+    FaUtensils,
+    FaEnvelope,
+    FaUserShield,
+    FaPlusSquare
 } from "react-icons/fa";
+import useAdmin from "../hooks/useAdmin";
 
 function Dashboard() {
     const [open, setOpen] = useState(false);
     const location = useLocation();
 
-    // Dashboard nav items
-    const dashboardNavItems = [
+    // TODO : Admin and User comming from database
+    const [isAdmin] = useAdmin()
+
+    // Normal user menu
+    const userNavItems = [
         { name: "User Home", path: "/dashboard/home", icon: <FaHome /> },
         { name: "Reservation", path: "/dashboard/reservation", icon: <FaClipboardList /> },
         { name: "Payment History", path: "/dashboard/payment-history", icon: <FaCreditCard /> },
@@ -25,13 +32,27 @@ function Dashboard() {
         { name: "My Booking", path: "/dashboard/my-booking", icon: <FaBook /> },
     ];
 
-    // Main site nav items (NOW WITH ICONS)
+    // Admin menu
+    const adminNavItems = [
+        { name: "Admin Home", path: "/dashboard/admin-home", icon: <FaHome /> },
+        { name: "Add Items", path: "/dashboard/add-items", icon: <FaPlusSquare /> },
+        { name: "Manage Items", path: "/dashboard/manage-items", icon: <FaUtensils /> },
+        { name: "Manage Bookings", path: "/dashboard/manage-bookings", icon: <FaClipboardList /> },
+        { name: "All Users", path: "/dashboard/all-users", icon: <FaUserShield /> },
+    ];
+
+    // Main site nav items
     const mainNavItems = [
         { name: "Home", path: "/", icon: <FaHome /> },
         { name: "Our Menu", path: "/OurMenu", icon: <FaUtensils /> },
         { name: "Order Food", path: "/OrderFood/salad", icon: <FaShoppingCart /> },
+        { name: "Contact", path: "/Contact", icon: <FaEnvelope /> },
     ];
 
+    // Conditional nav items based on admin
+    const navItems = isAdmin ? adminNavItems : userNavItems;
+
+    // Check active link
     const isActive = (path) => location.pathname === path;
 
     return (
@@ -39,21 +60,16 @@ function Dashboard() {
 
             {/* Sidebar for lg devices */}
             <aside className="hidden lg:flex lg:flex-col w-64 bg-[#D1A05A] text-black p-5 fixed top-0 left-0 h-screen overflow-y-auto">
-                {/* Logo */}
                 <div>
                     <Link to="/">
-                        <p className="text-3xl font-bold cinzel-font">
-                            BISTRO BOSS
-                        </p>
-                        <p className="tracking-[4px] font-semibold text-xl mt-1 cinzel-font">
-                            RESTAURANT
-                        </p>
+                        <p className="text-3xl font-bold cinzel-font">BISTRO BOSS</p>
+                        <p className="tracking-[4px] font-semibold text-xl mt-1 cinzel-font">RESTAURANT</p>
                     </Link>
                 </div>
 
                 {/* Dashboard Nav */}
                 <ul className="space-y-4 mt-10">
-                    {dashboardNavItems.map((item, index) => (
+                    {navItems.map((item, index) => (
                         <li key={index}>
                             <Link
                                 to={item.path}
@@ -72,7 +88,7 @@ function Dashboard() {
                 {/* Divider */}
                 <div className="border-t-2 border-white my-6"></div>
 
-                {/* Main Site Nav WITH ICONS */}
+                {/* Main Site Nav */}
                 <ul className="space-y-4">
                     {mainNavItems.map((item, index) => (
                         <li key={index}>
@@ -95,18 +111,12 @@ function Dashboard() {
             <nav className="lg:hidden fixed top-0 left-0 right-0 h-16 md:h-19 bg-[#D1A05A] text-black p-4 flex justify-between items-center z-50">
                 <div>
                     <Link to="/">
-                        <p className="text-2xl font-bold cinzel-font">
-                            BISTRO BOSS
-                        </p>
-                        <p className="tracking-[3px] font-semibold text-base mt-1 cinzel-font">
-                            RESTAURANT
-                        </p>
+                        <p className="text-2xl font-bold cinzel-font">BISTRO BOSS</p>
+                        <p className="tracking-[3px] font-semibold text-base mt-1 cinzel-font">RESTAURANT</p>
+
                     </Link>
                 </div>
-                <button
-                    onClick={() => setOpen(!open)}
-                    className="text-2xl focus:outline-none"
-                >
+                <button onClick={() => setOpen(!open)} className="text-2xl focus:outline-none">
                     <HiMenu />
                 </button>
             </nav>
@@ -114,7 +124,7 @@ function Dashboard() {
             {/* Mobile Menu Dropdown */}
             {open && (
                 <div className="lg:hidden fixed top-16 left-0 right-0 bg-[#D1A05A] text-black p-4 space-y-3 z-40">
-                    {dashboardNavItems.map((item, index) => (
+                    {navItems.map((item, index) => (
                         <Link
                             key={index}
                             to={item.path}
