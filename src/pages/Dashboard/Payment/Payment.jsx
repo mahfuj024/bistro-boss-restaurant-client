@@ -1,9 +1,8 @@
-import { loadStripe } from '@stripe/stripe-js'
-import React from 'react'
+// import { loadStripe } from '@stripe/stripe-js'
 import { FaCreditCard } from 'react-icons/fa'
 
 // TODO: add publishable key
-const stripePromise = loadStripe('') 
+// const stripePromise = loadStripe('') 
 
 function Payment() {
     return (

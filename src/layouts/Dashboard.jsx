@@ -24,12 +24,12 @@ function Dashboard() {
 
     // Normal user menu
     const userNavItems = [
-        { name: "User Home", path: "/dashboard/home", icon: <FaHome /> },
-        { name: "Reservation", path: "/dashboard/reservation", icon: <FaClipboardList /> },
-        { name: "Payment History", path: "/dashboard/payment-history", icon: <FaCreditCard /> },
+        { name: "User Home", path: "/dashboard/user-home", icon: <FaHome /> },
+        // { name: "Reservation", path: "/dashboard/reservation", icon: <FaClipboardList /> },
+        // { name: "Payment History", path: "/dashboard/payment-history", icon: <FaCreditCard /> },
         { name: "My Cart", path: "/dashboard/cart", icon: <FaShoppingCart /> },
-        { name: "Add Review", path: "/dashboard/review", icon: <FaStar /> },
-        { name: "My Booking", path: "/dashboard/my-booking", icon: <FaBook /> },
+        // { name: "Add Review", path: "/dashboard/review", icon: <FaStar /> },
+        // { name: "My Booking", path: "/dashboard/my-booking", icon: <FaBook /> },
     ];
 
     // Admin menu
@@ -37,7 +37,7 @@ function Dashboard() {
         { name: "Admin Home", path: "/dashboard/admin-home", icon: <FaHome /> },
         { name: "Add Items", path: "/dashboard/add-items", icon: <FaPlusSquare /> },
         { name: "Manage Items", path: "/dashboard/manage-items", icon: <FaUtensils /> },
-        { name: "Manage Bookings", path: "/dashboard/manage-bookings", icon: <FaClipboardList /> },
+        // { name: "Manage Bookings", path: "/dashboard/manage-bookings", icon: <FaClipboardList /> },
         { name: "All Users", path: "/dashboard/all-users", icon: <FaUserShield /> },
     ];
 

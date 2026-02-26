@@ -10,7 +10,7 @@ function Cart() {
     const axiosSecure = useAxiosSecure();
     const [showAll, setShowAll] = useState(false);
 
-    const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+    const totalPrice = (cart ?? []).reduce((total, item) => total + item.price, 0);
 
     const displayItems = showAll ? cart : cart.slice(0, 8);
 
