@@ -9,7 +9,7 @@ function UpdateItem() {
 
     useEffect(() => {
 
-        fetch(`https://bistro-boss-restaurant-server-phi.vercel.app/menu/${id}`)
+        fetch(`http://localhost:5000/menu/${id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
